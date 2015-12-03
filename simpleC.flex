@@ -39,6 +39,8 @@ HexLiteral = [0-9]x[a-f0-9]*
 
 CComment = "/*" ([^*]|"*"[^/])* "*/"
 
+StringLiteral = \"([^\"])*\"
+
 %%
 
 <YYINITIAL> {
@@ -130,6 +132,8 @@ CComment = "/*" ([^*]|"*"[^/])* "*/"
 
   /* identifiers */ 
   {Identifier}                   { return symbol(ID, yytext()); }  
+  
+  {StringLiteral}				 { return symbol(STRINGLITERAL, yytext()); }
   
   {CComment}					 { return symbol(COMMENT);}
   
