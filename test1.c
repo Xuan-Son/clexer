@@ -9,6 +9,8 @@ int main()
 	/*area of a circle is pi * radius * radius*/
 	sum = PI * radius * radius;
 	/*display the area*/
+	
+	// Adele is here
 	printf("The area of a circle is %f.\n",sum);
 	return 0;
 }

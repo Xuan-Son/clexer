@@ -38,6 +38,7 @@ IntegerLiteral = 0 | [1-9][0-9]*
 HexLiteral = [0-9]x[a-f0-9]*
 
 CComment = "/*" ([^*]|"*"[^/])* "*/"
+CPComment = "//" [^\n\r]*
 
 StringLiteral = \"([^\"])*\"
 
@@ -136,6 +137,8 @@ StringLiteral = \"([^\"])*\"
   {StringLiteral}				 { return symbol(STRINGLITERAL, yytext()); }
   
   {CComment}					 { return symbol(COMMENT);}
+  
+  {CPComment}					 { return symbol(COMMENT); }
   
 }
 
