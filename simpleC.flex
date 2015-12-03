@@ -37,6 +37,8 @@ IntegerLiteral = 0 | [1-9][0-9]*
 
 HexLiteral = [0-9]x[a-f0-9]*
 
+CComment = "/*" ([^*]|"*"[^/])* "*/"
+
 %%
 
 <YYINITIAL> {
@@ -128,6 +130,9 @@ HexLiteral = [0-9]x[a-f0-9]*
 
   /* identifiers */ 
   {Identifier}                   { return symbol(ID, yytext()); }  
+  
+  {CComment}					 { return symbol(COMMENT);}
+  
 }
 
 .                              { Errors.fatal(yyline+1, yycolumn+1, "Illegal character \"" + yytext()+ "\""); 
