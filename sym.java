@@ -56,8 +56,32 @@ public interface sym {
   public static final int STRDEREF = 45;	// ->
   
   
+  public static final int AUTO = 200;		// auto
+  public static final int BREAK = 201;		// break
+  public static final int CASE = 202;		// case
+  public static final int CHAR = 203;		// char
+  public static final int CONTINUE = 204;	// continue
+  public static final int DEFAULT = 205;	// default
+  public static final int ENUM = 206;		// enum
+  public static final int GOTO = 207;		// goto
+  public static final int LONG = 208;		// long
+  public static final int REGISTER = 209;	// register
+  public static final int SHORT = 210;		// short
+  public static final int SIGNED = 211;		// signed
+  public static final int STATIC = 212;		// static
+  public static final int SWITCH = 213;		// switch
+  public static final int TYPEDEF = 214;	// typedef
+  public static final int UNION = 215; 		// union
+  public static final int UNSIGNED = 216;	// unsigned
+  public static final int VOLATILE = 217;	// volatile
+  public static final int HEXLITERAL = 218; // hex-literal
+  
+  
+  
+  
+  
   public static final int DO = 101;			// do
-  public static final int DOUBLE = 102;		// while
+  public static final int DOUBLE = 102;		// double
   public static final int FLOAT = 103;		// float
   public static final int EXTERN = 104;		// extern
   public static final int PLUSPLUS = 105;	// ++
