@@ -120,7 +120,16 @@ StringLiteral = \"([^\"])*\"
   "<<"							 { return symbol(WRITE); }
   ">>"							 { return symbol(READ); }
   
-  {IntegerLiteral}               { return symbol(INTLITERAL, new Integer(yytext())); }
+  {IntegerLiteral}               { 
+  	  int val;
+	   try {
+	     val = (new Integer(yytext())).intValue();
+	   } catch (NumberFormatException e) {
+	     Errors.warn(yyline+1, yycolumn+1, "integer literal too large; using max value");
+	     val = Integer.MAX_VALUE;
+	   } 
+	  return symbol(INTLITERAL, val); 
+  }
   {HexLiteral}					 
   { 
 	String s = yytext().substring(2);
